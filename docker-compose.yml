@@ -1,0 +1,26 @@
+version: '3'
+services:
+    php:
+        build:
+            context: ./.containers/php
+        image: hsta_library:latest
+        container_name: hsta_library
+        working_dir: /var/www/html/library
+        depends_on:
+          - db
+        volumes:
+          - "./.containers/php/config/php/xdebug.ini:/usr/local/etc/php/conf.d/99-xdebug.ini"
+          - "./.containers/php/config/httpd/hsta.ac93.uk.conf:/etc/apache2/sites-enabled/hsta.ac93.uk.conf"
+          - ".:/var/www/html/library"
+        ports:
+          - "8080:80"
+
+    db:
+        image: mysql:5.7
+        container_name: hsta_library_db
+        env_file: ./.containers/mysql/.env
+        ports:
+            - "3306:3306"
+        volumes:
+            - "./.containers/mysql/data:/var/lib/mysql"
+            - "./.containers/mysql/my.cnf:/etc/mysql/my.cnf"
