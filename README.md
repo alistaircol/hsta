@@ -2,6 +2,36 @@
 
 Simple library management RESTful json API.
 
+```
+docker exec -it -u 1000 hsta_library bash -c "./vendor/bin/phpunit --testdox"
+
+PHPUnit 8.5.2 by Sebastian Bergmann and contributors.
+
+Add Book Validation (Tests\Unit\AddBookValidation)
+ ✔ Isbn rule
+ ✔ Iso 4217 currency rule
+
+Add Book (Tests\Feature\AddBook)
+ ✔ Add valid book will be successful
+ ✔ Add invalid book with bad isbn will be unsuccessful
+
+Get Books (Tests\Feature\GetBooks)
+ ✔ Search author robin nixon returns two books
+ ✔ Search author christoper negus returns one book
+ ✔ List all books within linux category
+ ✔ List all books within php category
+ ✔ List all books by author robin nixon in category linux
+
+Get Categories (Tests\Feature\GetCategories)
+ ✔ List all categories
+ ✔ List all books within linux category
+ ✔ List all books within php category
+
+Time: 587 ms, Memory: 28.00 MB
+
+OK (12 tests, 63 assertions)
+```
+
 ## Pre-requisites
 
 Application is in a couple Docker containers.
