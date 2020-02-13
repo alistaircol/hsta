@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Models\Book;
 
 class AddBookTest extends TestCase
 {
@@ -17,7 +16,7 @@ class AddBookTest extends TestCase
      *
      * @return void
      */
-    public function testAddValidBook()
+    public function testAddValidBookWillBeSuccessful()
     {
         $this->seed();
 
@@ -57,7 +56,7 @@ class AddBookTest extends TestCase
      *
      * @return void
      */
-    public function testAddInvalidBook()
+    public function testAddInvalidBookWithBadIsbnWillBeUnsuccessful()
     {
         $this->seed();
 
