@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Api\V1\Books;
 
-//use App\Http\Requests\JsonRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GetBooksRequest extends FormRequest

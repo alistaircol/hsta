@@ -4,16 +4,16 @@ Simple library management RESTful json API.
 
 ## Pre-requisites
 
-Application is in a Docker container.
+Application is in a couple Docker containers.
 
-* `hsta_library` is our webserver
-* `hsta_library_db` is our database which `hsta_library` is dependant on
+* `hsta_library` is our web server
+* `hsta_library_db` is our database which `hsta_library` is dependent on
 
 ## Installation
 
-We have our app in mounted in `hsta_library` container.
+We have our app in mounted in `hsta_library` (web server) container.
 
-We need to bring our container up, install dependencies and migrate our database.
+We need to bring our container up and install `composer` dependencies.
 
 ```
 docker-compose up- d

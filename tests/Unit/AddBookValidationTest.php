@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use Tests\CreatesApplication;
 use Illuminate\Support\Facades\Validator;
 
-class AddBookTest extends TestCase
+class AddBookValidationTest extends TestCase
 {
     use CreatesApplication;
 
@@ -28,7 +28,7 @@ class AddBookTest extends TestCase
         $this->messages = (new AddBookRequest())->messages();
     }
 
-    public function testInvalidBookValidation()
+    public function testInvalidBookIsbnAndCurrencyValidationErrorsInRequest()
     {
         $request = [
             'author' => 'Valid',
@@ -100,6 +100,7 @@ class AddBookTest extends TestCase
         $this->assertFalse($rule->passes('currency_code', '___'));
         $this->assertFalse($rule->passes('currency_code', '   '));
         $this->assertFalse($rule->passes('currency_code', 'aaaaaaaa'));
+        $this->assertFalse($rule->passes('currency_code', 'ZZZ'));
         $this->assertFalse($rule->passes('currency_code', []));
     }
 }
